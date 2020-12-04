@@ -1,5 +1,11 @@
 plugins {
-    id 'java'
+    id 'java-library'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
 }
 
 group 'org.example'
@@ -10,7 +16,7 @@ repositories {
 }
 
 dependencies {
-    implementation files('/home/ipondal/IdeaProjects/codementor/java11-splitpackage/build/libs/java11-splitpackage-1.0-SNAPSHOT.jar')
+    implementation files('../java11-splitpackage/build/libs/java11-splitpackage-1.0-SNAPSHOT.jar')
 
     implementation group: 'org.objenesis', name: 'objenesis', version: '2.6'
 
@@ -18,7 +24,16 @@ dependencies {
     testImplementation('org.junit.jupiter:junit-jupiter')
 }
 
+tasks.withType(JavaCompile).configureEach {
+    javaCompiler = javaToolchains.compilerFor {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
 test {
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
     useJUnitPlatform()
     testLogging {
         events "passed", "skipped", "failed"
