@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Add-Exports: java.base/sun.security.x509
+Add-Exports: java.base/sun.security.x510
 Main-Class: com.codementor.Sample
 

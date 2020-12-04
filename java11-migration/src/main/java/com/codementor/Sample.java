@@ -4,6 +4,8 @@ import org.objenesis.instantiator.sun.UnsafeFactoryInstantiator;
 import sun.misc.Unsafe;
 import sun.security.x509.X500Name;
 
+import javax.xml.parsers.NoCollision;
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.lang.reflect.Field;
 
@@ -19,5 +21,8 @@ public class Sample {
         UnsafeFactoryInstantiator<String> factory = new UnsafeFactoryInstantiator<String>(String.class);
         String asdf = factory.newInstance();
         System.out.println(asdf);
+
+        ParserConfigurationException exception = new ParserConfigurationException();
+        NoCollision noCollision = new NoCollision();
     }
 }

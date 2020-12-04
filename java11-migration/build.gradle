@@ -10,7 +10,10 @@ repositories {
 }
 
 dependencies {
+    implementation files('/home/ipondal/IdeaProjects/codementor/java11-splitpackage/build/libs/java11-splitpackage-1.0-SNAPSHOT.jar')
+
     implementation group: 'org.objenesis', name: 'objenesis', version: '2.6'
+
     testImplementation(platform('org.junit:junit-bom:5.7.0'))
     testImplementation('org.junit.jupiter:junit-jupiter')
 }
@@ -24,7 +27,7 @@ test {
 
 jar {
     manifest {
-        attributes 'Add-Exports': 'java.base/sun.security.x509'
+        attributes 'Add-Exports': 'java.base/sun.security.x510'
         attributes 'Main-Class': 'com.codementor.Sample'
     }
 }
